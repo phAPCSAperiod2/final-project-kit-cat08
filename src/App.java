@@ -3,5 +3,6 @@ public class App {
         Task homework = new Task("AP Review", 4.6, "Chemistry");
         System.out.println(homework);
         Subject subject1 = new Subject (homework.getSubject(), homework);
+        System.out.prinln(subject1.getClassName());
     }
 }
