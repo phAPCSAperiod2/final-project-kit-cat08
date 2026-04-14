@@ -4,6 +4,12 @@ public class Task{
     private String subject;
     private boolean isCompleted;
 
+    /**
+     * Creates a task object
+     * @param name - task name
+     * @param dueDate - task due date
+     * @param subject - class that task belongs to 
+     */
     public Task(String name, double dueDate, String subject){
         this.name = name;
         this.dueDate = dueDate;
