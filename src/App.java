@@ -1,8 +1,18 @@
 public class App {
     public static void main(String[] args) throws Exception {
         Task homework = new Task("AP Review", 4.6, "Chemistry");
-        System.out.println(homework);
+        Task homework2 = new Task("Study", 4.5, "Chemistry");
         Subject subject1 = new Subject (homework.getSubject(), homework);
-        System.out.prinln(subject1.getClassName());
+        System.out.println(subject1.getClassName());
+        subject1.addTask(homework2);
+        subject1.allTasks();
+        homework2.markAsCompleted();
+        subject1.removeTask(homework2);
+        subject1.removeTask(homework);
+        subject1.allTasks();
+
+
+
+
     }
 }

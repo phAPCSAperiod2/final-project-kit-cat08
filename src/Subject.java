@@ -23,7 +23,7 @@ public class Subject {
         return name;
     }
     public int getTotalTasks(){
-        reutn total;
+        return total;
     }
     public void addTask(Task task){
         assignments.add(task);
@@ -32,7 +32,12 @@ public class Subject {
     public void removeTask(Task task){
         if(task.getIsCompleted()){
             assignments.remove(task);
+             total--;
         }
+        else{
+            System.out.println("You have not finished that task yet!");
+        }
+
     }
     public void sortByDate(){
         for (int i = 0; i<assignments.size()-1; i++){
@@ -43,5 +48,12 @@ public class Subject {
             }
         }
     }
+    public void allTasks(){
+        sortByDate();
+        for (int i = 0; i<assignments.size(); i++){
+            System.out.println(assignments.get(i));
+    }
+
+}
 
 }

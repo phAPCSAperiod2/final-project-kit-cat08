@@ -53,7 +53,7 @@ public class Task{
         isCompleted = true;
     }
 
-    public toString(){
+    public String toString(){
         return subject + ": " + name + ", " + dueDate;
     }
 
