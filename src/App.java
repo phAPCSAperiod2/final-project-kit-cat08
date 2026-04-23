@@ -1,5 +1,11 @@
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) throws Exception {
+       Scanner scan = new Scanner(System.in);
+        System.out.println("Welcome to your To-Do List!");
+
+
         Task homework = new Task("AP Review", 4.6, "Chemistry");
         Task homework2 = new Task("Study", 4.5, "Chemistry");
         Subject subject1 = new Subject (homework.getSubject(), homework);

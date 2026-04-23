@@ -32,6 +32,9 @@ public class Subject {
     public ArrayList<Task> getTasks(){
         return assignments;
     }
+    public Task getSpecificTask(int index){
+        return assignments.get(index);
+    }
     /**
      * gets name of the class/subject
      * @return name of class
@@ -68,6 +71,7 @@ public class Subject {
         }
 
     }
+
     /**
      * organizes that task in the list by due date
      */

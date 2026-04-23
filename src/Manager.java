@@ -39,6 +39,12 @@ public class Manager{
             System.out.println("This task doesn't belong to any subject!");
         }
     }
+    public void sortTasksinSub(){
+        for (int i = 0; i< classes.size(); i++){
+            classes.get(i).sortByDate();
+        }
+    }
+   
 
     public String[][] getAllSorted(){
         //find the highest number of taxk in any subject
@@ -50,12 +56,35 @@ public class Manager{
         }
 
         String[][] tasksBySubject = new String[highest][classes.size()];
+        sortTasksinSub();
 
-        for (int i = 0; i< tasksBySubject[].length;i++){
-
+        //fill first row with class name
+        for (int i = 0; i < tasksBySubject[0].length; i++){
+            tasksBySubject[0][i] = classes.get(i).getClassName();
         }
 
+        //fill columns by class with task
+        for(int i = 0; i < tasksBySubject[0].length; i++){
 
+            for (int row = 1; row<classes.get(i).getTotalTasks(); row++ ){
+                tasksBySubject[row][i] = classes.get(i).getSpecificTask(i).getName();
+            }
+        }
+        return tasksBySubject;
+
+
+
+    }
+    public void printAllTask(){
+        String[][] tasks = getAllSorted();
+        for (int col = 0; col<tasks[0].length;col++){
+
+            for (int row = 0; row<tasks.length;row++){
+
+                System.out.println(tasks[row][col]);
+            }
+            System.out.println();
+        }
 
     }
 
