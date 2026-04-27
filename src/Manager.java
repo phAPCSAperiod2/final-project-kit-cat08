@@ -7,8 +7,8 @@ public class Manager{
     public Manager(){
         classes = new ArrayList();
     }
-    public void addSubject(String name){
-        Subject subject = new Subject(name);
+
+    public void addSubject(Subject subject){
         classes.add(subject);
     }
     public int subjectExist(String name){
@@ -44,7 +44,13 @@ public class Manager{
             classes.get(i).sortByDate();
         }
     }
-   
+
+    public void markBySub(Subject sub, Task task){
+        int indexOfClass = subjectExist(sub.getClassName());
+        int indexOfTask = classes.get(indexOfClass).findTask(task);
+        classes.get(indexOfClass).getTasks().get(indexOfTask).markAsCompleted();
+    }
+
 
     public String[][] getAllSorted(){
         //find the highest number of taxk in any subject
@@ -54,8 +60,9 @@ public class Manager{
                 highest =classes.get(i).getTotalTasks();
             }
         }
+        System.out.println(highest);
 
-        String[][] tasksBySubject = new String[highest][classes.size()];
+        String[][] tasksBySubject = new String[highest+1][classes.size()];
         sortTasksinSub();
 
         //fill first row with class name
@@ -72,14 +79,14 @@ public class Manager{
         }
         return tasksBySubject;
 
-
-
     }
+
+
     public void printAllTask(){
         String[][] tasks = getAllSorted();
         for (int col = 0; col<tasks[0].length;col++){
-
-            for (int row = 0; row<tasks.length;row++){
+            System.out.println(tasks[0][col]);
+            for (int row = 1; row<tasks.length;row++){
 
                 System.out.println(tasks[row][col]);
             }

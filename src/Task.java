@@ -8,7 +8,7 @@ public class Task{
      * Creates a task object
      * @param name - task name
      * @param dueDate - task due date
-     * @param subject - class that task belongs to 
+     * @param subject - class that task belongs to
      */
     public Task(String name, double dueDate, String subject){
         this.name = name;
@@ -58,6 +58,7 @@ public class Task{
     public void markAsCompleted(){
         isCompleted = true;
     }
+  
 
     public String toString(){
         return subject + ": " + name + ", " + dueDate;

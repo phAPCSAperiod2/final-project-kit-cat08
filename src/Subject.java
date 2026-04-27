@@ -32,6 +32,11 @@ public class Subject {
     public ArrayList<Task> getTasks(){
         return assignments;
     }
+    /**
+     * Gets a specific task from assignments
+     * @param index of task
+     * @return wanted task
+     */
     public Task getSpecificTask(int index){
         return assignments.get(index);
     }
@@ -71,7 +76,16 @@ public class Subject {
         }
 
     }
+    /**
+     * marks specific task as done
+     * @param task that was completed
+     */
+    public void markTask(Task task){
+        int index = findTask(task);
+        assignments.get(index).markAsCompleted();
 
+
+    }
     /**
      * organizes that task in the list by due date
      */
@@ -94,5 +108,13 @@ public class Subject {
     }
 
 }
+    public int findTask(Task task){
+        for (int i = 0; i<assignments.size(); i++){
+            if (assignments.get(i).getName().equals(task.getName())){
+                return i;
+            }
+        }
+        return -1;
+    }
 
 }
