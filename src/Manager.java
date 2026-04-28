@@ -73,8 +73,12 @@ public class Manager{
         //fill columns by class with task
         for(int i = 0; i < tasksBySubject[0].length; i++){
 
-            for (int row = 1; row<classes.get(i).getTotalTasks(); row++ ){
-                tasksBySubject[row][i] = classes.get(i).getSpecificTask(i).getName();
+            for (int row = 1; row<tasksBySubject.length; row++ ){
+
+                for(int task = 0; task< classes.get(i).getTotalTasks();task++){
+                    tasksBySubject[row][i] = classes.get(i).getSpecificTask(task).getName();
+                }
+
             }
         }
         return tasksBySubject;
@@ -87,7 +91,6 @@ public class Manager{
         for (int col = 0; col<tasks[0].length;col++){
             System.out.println(tasks[0][col]);
             for (int row = 1; row<tasks.length;row++){
-
                 System.out.println(tasks[row][col]);
             }
             System.out.println();

@@ -10,16 +10,21 @@ public class App {
         Task homework2 = new Task("Study", 4.5, "Chemistry");
 
         Subject subject1 = new Subject (homework.getSubject(), homework);
+        Subject subject2 = new Subject("Math");
+        Task homework3 = new Task ("limits", 5.7, "Math");
 
        // System.out.println(subject1.getClassName());
         subject1.addTask(homework2);
         subject1.allTasks();
+        subject2.addTask(homework3);
+        subject2.allTasks();
         //homework2.markAsCompleted();
         //subject1.removeTask(homework2);
         //subject1.removeTask(homework);
        // subject1.allTasks();
         Manager boss = new Manager();
         boss.addSubject(subject1);
+        boss.addSubject(subject2);
         boss.printAllTask();
 
 
