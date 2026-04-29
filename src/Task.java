@@ -58,8 +58,10 @@ public class Task{
     public void markAsCompleted(){
         isCompleted = true;
     }
-  
 
+    /**
+     * formats a Task object whe printed
+     */
     public String toString(){
         return subject + ": " + name + ", " + dueDate;
     }

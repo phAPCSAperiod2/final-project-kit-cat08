@@ -108,6 +108,11 @@ public class Subject {
     }
 
 }
+    /**
+     * finds the index of a specific task
+     * @param task task object that you want to find
+     * @return -1 if task doesn't exist or the index of what the task is
+     */
     public int findTask(Task task){
         for (int i = 0; i<assignments.size(); i++){
             if (assignments.get(i).getName().equals(task.getName())){
