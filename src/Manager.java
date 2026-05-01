@@ -95,7 +95,6 @@ public class Manager{
                 highest =classes.get(i).getTotalTasks();
             }
         }
-        System.out.println(highest);
 
         String[][] tasksBySubject = new String[highest+1][classes.size()];
         sortTasksinSub();
@@ -110,7 +109,6 @@ public class Manager{
         int task = 0;
             for (int col = 0; col< tasksBySubject[0].length; col++){
                 for (int row = 1; row<classes.get(sub).getTotalTasks()+1; row++){
-                    System.out.println(classes.get(sub).getTasks().get(task).getName());
                     tasksBySubject[row][col] = classes.get(sub).getTasks().get(task).getName();
                     task++;
                 }
@@ -126,7 +124,6 @@ public class Manager{
      */
     public void printAllTask(){
         String[][] tasks = getAllSorted();
-        System.out.println(tasks.length);
         for (int col = 0; col<tasks[0].length;col++){
             for (int row = 0; row<tasks.length;row++){
                 System.out.println(tasks[row][col]);
