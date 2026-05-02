@@ -3,19 +3,19 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-       Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to your To-Do List!");
         Manager boss = allSubjects(scan);
-        addingTasks(boss,scan);
-        boss.printAllTask();
-        System.out.println("Have you completed any tasks in a subject? [yes/no] ");
-        String answer = scan.nextLine();
-        while (answer.toLowerCase().equals("yes")){
-            completedTask(boss, scan);
-            System.out.println("Have you completed any other tasks in a subject? [yes/no] ");
-            answer = scan.nextLine();
+        Subject sub = new Subject("calc");
+        boolean allCompleted = false;
+        addingTasks(boss);
+        while (!allCompleted){
+            menu(boss);
+            boss.printAllTask();
+            allCompleted = noMoreTask(boss);
         }
-        boss.printAllTask();
+        System.out.println("You've completed all your task!");
+
 
     }
 
@@ -36,8 +36,16 @@ public class App {
         }
         return boss;
     }
+    public static void addIndividualSub(Manager boss){
+        Scanner scan = new Scanner (System.in);
+        System.out.println("What is the name of subject or category? ");
+        String name = scan.nextLine();
+        Subject sub = new Subject(name);
+        boss.addSubject(sub);
+    }
 
-    public static void addingTasks(Manager boss, Scanner scan){
+    public static void addingTasks(Manager boss){
+        Scanner scan = new Scanner (System.in);
         ArrayList<Subject> subs = boss.getList();
         System.out.println("What would you like to add a task to?");
         for (int i = 0; i <subs.size(); i++){
@@ -57,7 +65,8 @@ public class App {
             boss.addTaskToSubject(task);
         }
     }
-    public static void completedTask(Manager boss, Scanner scan){
+    public static void completedTask(Manager boss){
+        Scanner scan = new Scanner (System.in);
         System.out.println("Which subject does the task belong in? ");
         ArrayList<Subject> subs = boss.getList();
         for (int i = 0; i <subs.size(); i++){
@@ -73,13 +82,36 @@ public class App {
         System.out.println("What task did you complete? ");
         String task = scan.nextLine();
         int indexTask = subs.get(index).findTask(task);
-        subs.get(index).markTask(subs.get(index).getTasks().get(indexTask));
+        boss.markBySub(subs.get(index), subs.get(index).getTasks().get(indexTask));
         boss.removeTaskFromSubject(subs.get(index).getTasks().get(indexTask));
+        scan.nextLine();
+        }
+    }
+    public static void menu(Manager boss){
+        Scanner scan = new Scanner (System.in);
+        System.out.print("Options for To-Do list: \n1.Add new subject\n2.Add new task\n3.Finished tasks\n[pick a number] ");
+        int option = scan.nextInt();
+        if(option == 1){
+            addIndividualSub(boss);
+        }
+        else if(option ==2){
+            addingTasks(boss);
+        }
+        else if (option == 3){
+            completedTask(boss);
+
         }
 
-
     }
-
+    public static boolean noMoreTask(Manager boss){
+        ArrayList<Subject>subs = boss.getList();
+        for(int i = 0; i<subs.size();i++){
+            if(subs.get(i).getTotalTasks()>0){
+                return false;
+            }
+        }
+        return true;
+    }
 
 
 }
