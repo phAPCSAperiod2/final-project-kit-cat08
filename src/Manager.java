@@ -1,5 +1,9 @@
 import java.util.ArrayList;
-
+/**
+ * This class integrates the Task and Subject classes together.
+ * @author Cathy Vo
+ * @version 5/4/2026
+ */
 public class Manager{
 
     private ArrayList<Subject> classes;

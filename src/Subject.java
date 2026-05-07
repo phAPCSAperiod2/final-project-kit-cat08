@@ -1,4 +1,9 @@
 import java.util.ArrayList;
+/**
+ * This is a Subject object. It has a list of task, a name, and total tasks.
+ * @author Cathy Vo
+ * @version 5/7/26
+ */
 public class Subject {
     private ArrayList<Task>assignments;
     private String name;

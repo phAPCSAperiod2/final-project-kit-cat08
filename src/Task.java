@@ -1,3 +1,8 @@
+/**
+ * Creates a Task object. This has a name, due date, subject the task belongs to, and completion.
+ * @author Cathy Vo
+ * @version 5/7/26
+ */
 public class Task{
     private String name;
     private double dueDate;

@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+/**
+ * This is my to-do. This is where users are able to add subjects and task along with remove/complete them!
+ * @author Cathy Vo
+ * @version 5/7/26
+ */
 
 public class App {
     public static void main(String[] args) throws Exception {
