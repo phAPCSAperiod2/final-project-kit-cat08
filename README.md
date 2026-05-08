@@ -9,7 +9,7 @@ Welcome to your To-Do List!
 - The goal of this program is to create a space where busy people and students can keep organize by having all their tasks for different things in one area.
 - Users will be able to create subjects/categories to store task in as well as add tasks into said categories/subjects.
 - Users will also be able to mark tasks as complete which removes the task from the list.
-- This project is unique because...
+- This project is unique because it allows users to actively interact with the program and allows them to remain organize in an easy manner. 
 
 ---
 
@@ -19,6 +19,10 @@ In this project, it has:
 - Inventory system using ArrayLists
 - Menu-driven user interaction
 - Multiple classes that interact to create the To-Do List
+
+With more time:
+- I would add user exception handling
+- I would give encouraging comments as the user completes task
 
 
 ---
@@ -31,7 +35,7 @@ Classes and their Responsibilites:
 - Subject.java: Keeps an array list of tasks for a specific subject, adds/removes tasks within the subject
 - Task.java: most basic object for the program, has a name, due date, subject, and keeps track of completion
 
-Class Diagram:
+Class Diagram: https://drive.google.com/file/d/1aQeTJoBHTNXLwQL8PCUooMZXc2iOljy6/view?usp=sharing
 
 ---
 
