@@ -29,7 +29,11 @@ public class App {
 
 
     }
-
+    /**
+     * This method creates all the subjects that a student has and adds it to a Manager object
+     * @param scan, scanner to collect input
+     * @return returns a Manager Object
+     */
     public static Manager allSubjects(Scanner scan){
         Manager boss = new Manager();
         System.out.println("How many classes do you take?");
@@ -48,6 +52,10 @@ public class App {
         }
         return boss;
     }
+    /**
+     * Creates a new subject obejct and adds it to the Manager
+     * @param boss keeps program organize for subejcts and tasks
+     */
     public static void addIndividualSub(Manager boss){
         Scanner scan = new Scanner (System.in);
         System.out.println();
@@ -56,7 +64,10 @@ public class App {
         Subject sub = new Subject(name);
         boss.addSubject(sub);
     }
-
+    /**
+     * add tasks to a specific subject
+     * @param boss stores the subjects availble to add tasks to
+     */
     public static void addingTasks(Manager boss){
         Scanner scan = new Scanner (System.in);
         ArrayList<Subject> subs = boss.getList();
@@ -83,6 +94,10 @@ public class App {
             System.out.println();
         }
     }
+    /**
+     * Marks tasks as completed
+     * @param boss stores the subjects with all the tasks
+     */
     public static void completedTask(Manager boss){
         Scanner scan = new Scanner (System.in);
         System.out.println("Which subject does the task belong in? ");
@@ -107,6 +122,10 @@ public class App {
         boss.removeTaskFromSubject(subs.get(index).getTasks().get(indexTask));
         }
     }
+    /**
+     * creates menu of options that the user can do
+     * @param boss stores the subjects and tasks that the user will interact with
+     */
     public static void menu(Manager boss){
         Scanner scan = new Scanner (System.in);
         System.out.print("Options for To-Do list: \n1.Add new subject\n2.Add new task\n3.Finished tasks\n[pick a number] ");
@@ -126,6 +145,11 @@ public class App {
         }
 
     }
+    /**
+     * checks if the user still has tasks to complete
+     * @param boss has the subjects which stores tasks
+     * @return true or false if the user has more tasks
+     */
     public static boolean noMoreTask(Manager boss){
         ArrayList<Subject>subs = boss.getList();
         for(int i = 0; i<subs.size();i++){
